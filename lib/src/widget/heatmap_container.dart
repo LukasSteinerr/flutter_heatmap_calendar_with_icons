@@ -46,14 +46,17 @@ class HeatMapContainer extends StatelessWidget {
             height: size,
             alignment: Alignment.center,
             child: Stack(
-              alignment: Alignment.center,
+              alignment: Alignment.topLeft,
               children: [
                 if (showText ?? true)
-                  Text(
-                    date.day.toString(),
-                    style: TextStyle(
-                        color: textColor ?? const Color(0xFF8A8A8A),
-                        fontSize: fontSize),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      date.day.toString(),
+                      style: TextStyle(
+                          color: textColor ?? const Color(0xFF8A8A8A),
+                          fontSize: fontSize),
+                    ),
                   ),
                 if (icon != null) icon!,
               ],
