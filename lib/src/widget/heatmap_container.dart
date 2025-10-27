@@ -44,7 +44,6 @@ class HeatMapContainer extends StatelessWidget {
             curve: Curves.easeInOutQuad,
             width: size,
             height: size,
-            alignment: Alignment.center,
             child: Stack(
               alignment: Alignment.topLeft,
               children: [
