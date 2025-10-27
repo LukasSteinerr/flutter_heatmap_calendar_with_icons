@@ -28,6 +28,11 @@ class _HeatMapCalendarExample extends State<HeatMapCalendarExample> {
     heatLevelController.dispose();
   }
 
+  Map<DateTime, BoxBorder> heatMapBorders = {
+    DateTime(2024, 2, 20): Border.all(color: Colors.blue, width: 2),
+    DateTime(2024, 2, 10): Border.all(color: Colors.green, width: 2),
+  };
+
   Widget _textField(final String hint, final TextEditingController controller) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 20, top: 8.0),
@@ -66,6 +71,7 @@ class _HeatMapCalendarExample extends State<HeatMapCalendarExample> {
                   flexible: true,
                   datasets: heatMapDatasets,
                   icons: heatMapIcons,
+                  borders: heatMapBorders,
                   colorMode:
                       isOpacityMode ? ColorMode.opacity : ColorMode.color,
                   colorsets: const {
