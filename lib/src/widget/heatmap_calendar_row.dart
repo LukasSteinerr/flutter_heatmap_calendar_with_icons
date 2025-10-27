@@ -64,6 +64,7 @@ class HeatMapCalendarRow extends StatelessWidget {
   ///
   /// Paratmeter gives clicked [DateTime] value.
   final Function(DateTime)? onClick;
+  final Map<DateTime, Widget>? icons;
 
   HeatMapCalendarRow({
     Key? key,
@@ -81,6 +82,7 @@ class HeatMapCalendarRow extends StatelessWidget {
     this.datasets,
     this.maxValue,
     this.onClick,
+    this.icons,
   })  : dayContainers = List<Widget>.generate(
           7,
           // If current week has first day of the month and
@@ -115,6 +117,12 @@ class HeatMapCalendarRow extends StatelessWidget {
                   borderRadius: borderRadius,
                   margin: margin,
                   onClick: onClick,
+                  icon: icons?[DateTime(
+                    startDate.year,
+                    startDate.month,
+                    startDate.day - (startDate.weekday % 7) + i,
+                  )],
+
                   // If datasets has DateTime key which is equal to this HeatMapContainer's date,
                   // we have to color the matched HeatMapContainer.
                   //

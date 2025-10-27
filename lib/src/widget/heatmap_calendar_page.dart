@@ -60,6 +60,7 @@ class HeatMapCalendarPage extends StatelessWidget {
   ///
   /// Paratmeter gives clicked [DateTime] value.
   final Function(DateTime)? onClick;
+  final Map<DateTime, Widget>? icons;
 
   HeatMapCalendarPage({
     Key? key,
@@ -75,6 +76,7 @@ class HeatMapCalendarPage extends StatelessWidget {
     this.colorsets,
     this.borderRadius,
     this.onClick,
+    this.icons,
   })  : separatedDate = DateUtil.separatedMonth(baseDate),
         maxValue = DatasetsUtil.getMaxValue(
             DatasetsUtil.filterMonth(datasets, baseDate)),
@@ -100,6 +102,7 @@ class HeatMapCalendarPage extends StatelessWidget {
             margin: margin,
             maxValue: maxValue,
             onClick: onClick,
+            icons: icons,
             datasets: Map.from(datasets ?? {})
               ..removeWhere(
                 (key, value) => !(key.isAfter(date.keys.first) &&

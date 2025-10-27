@@ -16,6 +16,10 @@ class _HeatMapCalendarExample extends State<HeatMapCalendarExample> {
   bool isOpacityMode = true;
 
   Map<DateTime, int> heatMapDatasets = {};
+  Map<DateTime, Widget> heatMapIcons = {
+    DateTime(2024, 2, 20): const Icon(Icons.star, color: Colors.yellow),
+    DateTime(2024, 2, 10): const Icon(Icons.flag, color: Colors.blue),
+  };
 
   @override
   void dispose() {
@@ -61,6 +65,7 @@ class _HeatMapCalendarExample extends State<HeatMapCalendarExample> {
                 child: HeatMapCalendar(
                   flexible: true,
                   datasets: heatMapDatasets,
+                  icons: heatMapIcons,
                   colorMode:
                       isOpacityMode ? ColorMode.opacity : ColorMode.color,
                   colorsets: const {
